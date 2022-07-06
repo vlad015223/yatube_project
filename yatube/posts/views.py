@@ -6,7 +6,7 @@ def index(request):
     template = 'posts/index.html'
     context = {
         'title': 'Это главная страница проекта Yatube',
-        'text': 'Здесь будет информация о группах проекта Yatube'
+        'text': 'Последние обновления на сайте'
     }
     return render(request, template, context)
 
