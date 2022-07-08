@@ -24,7 +24,12 @@
   </head>
   <body>
     <header>
-        {% include 'includes/header.html' %}   
+        {% include 'includes/header.html' %}  
+        <div class="container py-5">
+        {%block header%}
+        {{ header }}
+        {% endblock %} 
+      </div>
     </header>
     <main> 
       <div class="container py-5">

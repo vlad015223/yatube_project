@@ -2,6 +2,9 @@
 <html lang="ru">
   <head>    
     {% extends 'base.html' %} 
+    {% for i in context.index %}
+     {{ i }}
+    {% endfor %}
   </head>
   <body>
     <header>
