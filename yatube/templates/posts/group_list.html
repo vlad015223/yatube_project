@@ -1,20 +1,19 @@
-<!DOCTYPE html>
-<html lang="ru">
-  <head>    
-    {% extends 'base.html' %} 
-    {% for i in context.index %}
-     {{ i }}
-    {% endfor %}
-  </head>
-  <body>
-    <header>
-      {% include 'includes/header.html' %}
-    </header>
-    <main>
-      {% extends 'base.html' %}
-    </main>
-    <footer>
-      {% include 'includes/footer.html' %}
-    </footer>
-  </body>
-</html>
+{% extends 'base.html' %}
+{% block title %}{{ group.title }}{% endblock %}
+
+{% block content %}
+  <h3>Сообщество {{ group.title }}</h3>
+  <p>{{ group.description }}</p>
+  {% for post in posts %}
+    <ul>
+      <li>
+        Автор: {{ post.author.get_full_name }}
+      </li>
+      <li>
+        Дата публикации: {{ post.pub_date|date:"d M Y" }}
+      </li>
+    </ul>
+  <p>{{ post.text|linebreaksbr }}</p>    
+  {% if not forloop.last %}<hr>{% endif %}
+  {% endfor %}
+{% endblock %}
